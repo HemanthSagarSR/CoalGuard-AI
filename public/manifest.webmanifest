@@ -1,0 +1,17 @@
+{
+  "name": "CoalGuard AI",
+  "short_name": "CoalGuard",
+  "description": "Local-first governance and risk monitoring platform for coal-mine operations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  --background: #F0EDE8;
+  --foreground: #1E1B18;
+  --card: #FAFAF8;
+  --card-foreground: #1E1B18;
+  --popover: #FAFAF8;
+  --popover-foreground: #1E1B18;
+  --primary: #4A7A66;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E8E3DC;
+  --secondary-foreground: #1E1B18;
+  --muted: #E8E3DC;
+  --muted-foreground: #706A63;
+  --accent: #BFA77A;
+  --accent-foreground: #1E1B18;
+  --destructive: #B94444;
+  --border: #D6D0C8;
+  --input: #DDD8D0;
+  --ring: #4A7A66;
+  --chart-1: #4A7A66;
+  --chart-2: #BFA77A;
+  --chart-3: #7B6FC0;
+  --chart-4: #E8883A;
+  --chart-5: #D94455;
+  --sidebar: #EAE5DE;
+  --sidebar-foreground: #1E1B18;
+  --sidebar-primary: #4A7A66;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E0DBD3;
+  --sidebar-accent-foreground: #1E1B18;
+  --sidebar-border: #D6D0C8;
+  --sidebar-ring: #4A7A66;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+/* Claymorphism utilities — clean and minimal */
+@layer utilities {
+  .clay-card {
+    background: var(--card);
+    border-radius: 1.25rem;
+    box-shadow:
+      4px 4px 10px rgba(180, 172, 162, 0.3),
+      -4px -4px 10px rgba(255, 255, 255, 0.7),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 1.25rem;
+    transition: box-shadow 0.15s ease;
+  }
+
+  .clay-card:hover {
+    box-shadow:
+      5px 5px 12px rgba(180, 172, 162, 0.35),
+      -5px -5px 12px rgba(255, 255, 255, 0.75),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  }
+
+  .clay-inset {
+    background: var(--background);
+    border-radius: 0.875rem;
+    box-shadow:
+      inset 2px 2px 5px rgba(180, 172, 162, 0.25),
+      inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(214, 208, 200, 0.4);
+  }
+
+  .clay-button {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: 0.875rem;
+    box-shadow:
+      2px 2px 6px rgba(180, 172, 162, 0.3),
+      -2px -2px 6px rgba(255, 255, 255, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+  }
+
+  .clay-button:hover {
+    box-shadow:
+      3px 3px 8px rgba(180, 172, 162, 0.35),
+      -3px -3px 8px rgba(255, 255, 255, 0.6);
+    transform: translateY(-1px);
+  }
+
+  .clay-button:active {
+    box-shadow:
+      inset 2px 2px 4px rgba(0, 0, 0, 0.12),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.3);
+    transform: translateY(0);
+  }
+
+  .clay-sidebar {
+    background: var(--sidebar);
+    box-shadow:
+      3px 0 12px rgba(180, 172, 162, 0.2);
+  }
+
+  .clay-badge {
+    border-radius: 0.625rem;
+    box-shadow:
+      1px 1px 3px rgba(180, 172, 162, 0.25),
+      -1px -1px 3px rgba(255, 255, 255, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .clay-input {
+    background: var(--background);
+    border-radius: 0.875rem;
+    box-shadow:
+      inset 2px 2px 4px rgba(180, 172, 162, 0.2),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(214, 208, 200, 0.4);
+    padding: 0.5rem 0.875rem;
+    transition: all 0.15s ease;
+  }
+
+  .clay-input:focus {
+    box-shadow:
+      inset 2px 2px 4px rgba(180, 172, 162, 0.2),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+      0 0 0 2px var(--primary);
+    outline: none;
+  }
+}
+
+/* Leaflet map overrides */
+.leaflet-container {
+  border-radius: 1.25rem;
+  background: var(--card);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
