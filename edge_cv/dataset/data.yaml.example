@@ -1,0 +1,10 @@
+# Replace this example with the actual YAML exported by your PPE dataset.
+# Keep class order aligned with the label IDs in the dataset.
+path: ./edge_cv/dataset
+train: images/train
+val: images/val
+
+names:
+  0: person
+  1: helmet
+  2: vest

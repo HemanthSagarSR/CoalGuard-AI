@@ -3,6 +3,7 @@ import { api } from "@/lib/local-api";
 import AppLayout from "@/components/AppLayout";
 import { useState } from "react";
 import { AlertTriangle } from "lucide-react";
+import EdgeVisionPanel from "@/components/vision/EdgeVisionPanel";
 
 const severityBg: Record<string, string> = {
   LOW: "bg-[#E8F5E9] text-[#2E7D32]", MEDIUM: "bg-[#FFF8E1] text-[#F57F17]",
@@ -69,6 +70,8 @@ export default function ViolationsPage() {
             {["LOW", "MEDIUM", "HIGH", "CRITICAL"].map(s => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
+
+        <EdgeVisionPanel />
 
         <div className="space-y-3">
           {filtered.map((v: any) => {

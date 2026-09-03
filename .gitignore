@@ -10,3 +10,7 @@ dist/
 .idea/
 coverage/
 *.tsbuildinfo
+
+.venv/
+__pycache__/
+*.pyc
