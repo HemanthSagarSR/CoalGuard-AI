@@ -6,12 +6,13 @@ type DemoUser = { _id: string; name: string; email: string; role: string };
 export function useAuth() {
   const [user, setUser] = useState<DemoUser | null>(() => currentUser());
   useEffect(() => subscribeLocal(() => setUser(currentUser())), []);
-  const signIn = async (provider: string, formData: FormData) => {
+  const signIn = async (provider: string, formData?: FormData) => {
     if (provider === "anonymous") {
       const guest: DemoUser = { _id: "guest-user", name: "Demo Guest", email: "guest@coalguard.local", role: "MINE_OFFICIAL" };
       setCurrentUser(guest);
       return;
     }
+    if (!formData) throw new Error("Form data is required.");
     const email = String(formData.get("email") || "").trim();
     const code = String(formData.get("code") || "").trim();
     if (!email) throw new Error("Email is required.");
@@ -26,3 +27,4 @@ export function useAuth() {
   const signOut = async () => setCurrentUser(null);
   return { isLoading: false, isAuthenticated: !!user, user, signIn, signOut };
 }
+

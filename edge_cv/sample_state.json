@@ -1,0 +1,28 @@
+{
+  "source": "demo-video.mp4",
+  "timestamp": 0,
+  "vision": {
+    "workers_detected": 3,
+    "missing_ppe_count": 2,
+    "missing_helmet_count": 2,
+    "missing_vest_count": 1,
+    "unauthorized_zone": false,
+    "severity": "CRITICAL"
+  },
+  "detections": [
+    {
+      "class_name": "Person",
+      "confidence": 0.94,
+      "bbox": [120, 80, 420, 620]
+    },
+    {
+      "class_name": "Hardhat",
+      "confidence": 0.91,
+      "bbox": [190, 90, 250, 150]
+    }
+  ],
+  "worker_states": [],
+  "model_loaded": true,
+  "demo_mode": false,
+  "error": null
+}
